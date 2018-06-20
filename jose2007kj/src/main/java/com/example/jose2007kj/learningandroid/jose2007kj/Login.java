@@ -1,6 +1,7 @@
 package com.example.jose2007kj.learningandroid.jose2007kj;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,11 +15,12 @@ import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import com.example.jose2007kj.learningandroid.jose2007kj.model.UserData;
 
 public class Login extends Fragment {
     private EditText email,pwd;
     private String s_email,s_pwd;
+    private boolean login_status;
     //https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
     public static final Pattern VALID_PASSWOLD_REGEX_ALPHA_NUM
             = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
@@ -57,10 +59,19 @@ public class Login extends Fragment {
         s_email=email.getText().toString().trim();
         s_pwd=pwd.getText().toString().trim();
         if(!validate()){
-            Toast.makeText(getActivity(), "Signup failed.Please Enter valid details", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Login failed.Please Enter valid details", Toast.LENGTH_SHORT).show();
 
         }
         else{
+            UserData user= new UserData();
+            login_status = user.login(s_email,s_pwd);
+            Log.d("inside sucess","login.jvava login status"+login_status);
+            if(login_status){
+                Intent intent= new Intent(getActivity(),UserDetails.class);
+                Log.d("inside sucess","calling intent");
+                startActivity(intent);
+            }
+
             Toast.makeText(getActivity(), "Its seems correct", Toast.LENGTH_SHORT).show();
         }
     }

@@ -20,9 +20,11 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.example.jose2007kj.learningandroid.jose2007kj.model.UserData;
 
 public class SignUp extends Fragment {
     private EditText f_name,l_name,email,pwd,p_no,re_pwd,dob;
+    private boolean signin_status;
 //    private DatePicker dob;
     Calendar cal = Calendar.getInstance();
     private String s_fname,s_lname,s_email,s_pwd,s_dob,s_pno,s_repwd;
@@ -107,7 +109,12 @@ public class SignUp extends Fragment {
 
         }
         else{
-            Toast.makeText(getActivity(), "Its seems correct", Toast.LENGTH_SHORT).show();
+            UserData user = new UserData();
+            signin_status=user.register(s_fname, s_lname, s_email, s_pwd, s_pno, s_dob);
+            if(signin_status){
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container,new Login(),null).addToBackStack(null).commit();
+            }
+            //Toast.makeText(getActivity(), "Its seems correct", Toast.LENGTH_SHORT).show();
         }
     }
     public boolean validate(){
@@ -116,7 +123,7 @@ public class SignUp extends Fragment {
             f_name.setError("Please Enter valid First Name");
             value=false;
         }
-        if (s_lname.isEmpty()|| s_fname.length()>32){
+        if (s_lname.isEmpty()|| s_lname.length()>32){
             l_name.setError("Please Enter valid last Name");
             value=false;
         }
