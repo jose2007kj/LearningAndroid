@@ -114,19 +114,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editText9" />
 
+
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/dateDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:layout_marginBottom="19dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="21dp"
-                android:hint="@string/dob"
-                android:inputType="date" />
+                android:clickable="true"
+                android:inputType="date"
+                android:focusable="false"
+                android:hint="@string/dob" />
+            <!--<DatePicker
+                android:id="@+id/datePicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="19dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="25dp"></DatePicker>-->
 
             <Button
                 android:id="@+id/button3"
@@ -170,12 +182,15 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="25dp"
+                android:layout_marginBottom="19dp"
                 android:background="?attr/colorPrimary"
                 android:text="@string/button3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
 
 
 
