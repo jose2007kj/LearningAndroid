@@ -28,4 +28,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="retype_password">Please re-enter password</string>
     <string name="dob">Select your Date of Birth</string>
+    <string name="key_name" translatable="false">Name</string>
+    <string name="key_username">Username</string>
+    <string name="key_firstname">First Name</string>
+    <string name="key_lastname">Last Name</string>
+    <string name="key_email">Email Id</string>
+    <string name="key_phone">Phone Number</string>
+    <string name="u_name">Enter  your username</string>
 </resources>

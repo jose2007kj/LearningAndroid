@@ -18,6 +18,22 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/u_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="48dp"
+                android:ems="10"
+                android:hint="@string/u_name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+            <EditText
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +78,7 @@
                 android:layout_marginTop="16dp"
                 android:ems="10"
                 android:hint="@string/retype_password"
-                android:inputType="textPersonName"
+                android:inputType="textPassword"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

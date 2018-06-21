@@ -13,13 +13,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.Serializable;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import com.example.jose2007kj.learningandroid.jose2007kj.model.UserData;
 
 public class Login extends Fragment {
-    private EditText email,pwd;
-    private String s_email,s_pwd;
+    private EditText email, pwd;
+    private String s_email, s_pwd;
     private boolean login_status;
     //https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
     public static final Pattern VALID_PASSWOLD_REGEX_ALPHA_NUM
@@ -35,40 +38,42 @@ public class Login extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         Button gotTosignup = view.findViewById(R.id.button2);
-        Button Login=view.findViewById(R.id.button);
+        Button Login = view.findViewById(R.id.button);
         gotTosignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainActivity.fragmentManager.popBackStack();
             }
         });
-        email=view.findViewById(R.id.editText6);
-        pwd=view.findViewById(R.id.editText8);
+        email = view.findViewById(R.id.editText6);
+        pwd = view.findViewById(R.id.editText8);
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 login();
             }
         });
-        return(view);
+        return (view);
     }
-    public void login(){
+
+    public void login() {
         initialize();
     }
-    public void initialize(){
-        s_email=email.getText().toString().trim();
-        s_pwd=pwd.getText().toString().trim();
-        if(!validate()){
+
+    public void initialize() {
+        s_email = email.getText().toString().trim();
+        s_pwd = pwd.getText().toString().trim();
+        if (!validate()) {
             Toast.makeText(getActivity(), "Login failed.Please Enter valid details", Toast.LENGTH_SHORT).show();
 
-        }
-        else{
-            UserData user= new UserData();
-            login_status = user.login(s_email,s_pwd);
-            Log.d("inside sucess","login.jvava login status"+login_status);
-            if(login_status){
-                Intent intent= new Intent(getActivity(),UserDetails.class);
-                Log.d("inside sucess","calling intent");
+        } else {
+            UserData user = new UserData();
+            login_status = user.login(s_email, s_pwd);
+            Map<String, String> data = user.userDetails();
+            Log.d("inside sucess", "login.jvava login status" + login_status);
+            if (login_status) {
+                Intent intent = new Intent(getActivity(), UserDetails.class).putExtra("map",(Serializable) data);
+                Log.d("inside sucess", "calling intent");
                 startActivity(intent);
             }
 
@@ -92,15 +97,17 @@ public class Login extends Fragment {
 
         return value;
     }
+
     public static boolean validatePassword(String pwStr) {
-        Log.d("testing password","password"+pwStr);
+        Log.d("testing password", "password" + pwStr);
         Matcher matcher = VALID_PASSWOLD_REGEX_ALPHA_NUM.matcher(pwStr);
         return matcher.matches();
     }
+
     public static boolean validateEmail(String pwStr) {
-        Log.d("testing Email","Email"+pwStr);
+        Log.d("testing Email", "Email" + pwStr);
         Matcher matcher = VALID_EMAIL_REGEX_ALPHA_NUM.matcher(pwStr);
-        Log.d("email comparison","matcher result"+matcher.matches());
+        Log.d("email comparison", "matcher result" + matcher.matches());
         return matcher.matches();
     }
 }

@@ -12,15 +12,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fragmentManager =getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if (findViewById(R.id.fragment_container) != null){
-            if (savedInstanceState!=null){
+        if (findViewById(R.id.fragment_container) != null) {
+            if (savedInstanceState != null) {
                 return;
             }
 //            Login login = new Login();
             SignUp signup = new SignUp();
-            fragmentTransaction.add(R.id.fragment_container,signup,null).commit();
+            fragmentTransaction.add(R.id.fragment_container, signup, null).commit();
 
 
         }
