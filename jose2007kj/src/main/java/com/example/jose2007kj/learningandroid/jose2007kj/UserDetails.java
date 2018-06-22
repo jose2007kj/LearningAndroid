@@ -3,14 +3,17 @@ package com.example.jose2007kj.learningandroid.jose2007kj;
 import com.example.jose2007kj.learningandroid.jose2007kj.model.UserData;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.Map;
 
 public class UserDetails extends AppCompatActivity {
+    String u_pno,u_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,26 @@ public class UserDetails extends AppCompatActivity {
         user_name.setText(data.get("username"));
         email.setText(data.get("email"));
         pno.setText(data.get("pno"));
+        u_pno="tel:"+data.get("pno");
+//        u_email=data.get("email");
+        u_email = "mailto:"+data.get("email");
+
+        pno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse(u_pno)));
+
+            }
+        });
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse(u_email));
+                startActivity(emailIntent);
+
+            }
+        });
 
     }
 }
