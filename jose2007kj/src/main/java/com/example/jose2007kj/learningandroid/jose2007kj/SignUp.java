@@ -148,7 +148,7 @@ public class SignUp extends Fragment {
 
         }
         if (!validatePassword(s_pwd)) {
-            pwd.setError("Please Enter a valid Password");
+            pwd.setError("Please Enter a Password having a Capital letter,number,special chrecter and minimum length of 8");
             value = false;
         }
         if (!validateEmail(s_email)) {
