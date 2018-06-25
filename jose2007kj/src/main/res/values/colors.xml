@@ -6,4 +6,9 @@
     <color name="start">#09c6df</color>
     <color name="end">#0bcce6</color>
     <color name="gray">#fafafa</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="tabText">#f292b3</color>
+    <color name="tabIndicator">#a6969b</color>
+
+
 </resources>

@@ -2,6 +2,7 @@ package com.example.jose2007kj.learningandroid.jose2007kj;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -49,6 +50,7 @@ public class SignUp extends Fragment {
         View view = inflater.inflate(R.layout.fragment_signup, container, false);
         Button signin = view.findViewById(R.id.button3);
         Button login = view.findViewById(R.id.button4);
+        Button shortcut = view.findViewById(R.id.shortcut);
         f_name = view.findViewById(R.id.editText5);
         l_name = view.findViewById(R.id.editText9);
         email = view.findViewById(R.id.editText);
@@ -82,6 +84,14 @@ public class SignUp extends Fragment {
             @Override
             public void onClick(View view) {
                 register();
+            }
+        });
+        shortcut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // for temporary use only
+                Intent intent = new Intent(getContext(),Dashboard.class);
+                startActivity(intent);
             }
         });
 
