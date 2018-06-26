@@ -35,4 +35,5 @@
     <string name="key_email">Email Id</string>
     <string name="key_phone">Phone Number</string>
     <string name="u_name">Enter  your username</string>
+    <string name="shortcut">Go to Dashboard</string>
 </resources>
