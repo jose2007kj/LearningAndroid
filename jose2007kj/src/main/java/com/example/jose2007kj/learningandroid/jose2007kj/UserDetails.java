@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.Map;
 
 public class UserDetails extends AppCompatActivity {
-    String u_pno,u_email;
+    String u_pno, u_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +57,8 @@ public class UserDetails extends AppCompatActivity {
 
                 }
             });
-        }catch (Exception ex){
-            Log.d("exception","ex"+ex);
+        } catch (Exception ex) {
+            Log.d("exception", "ex" + ex);
         }
 
     }

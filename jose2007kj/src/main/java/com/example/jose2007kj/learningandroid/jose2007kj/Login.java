@@ -72,7 +72,7 @@ public class Login extends Fragment {
             Map<String, String> data = user.userDetails();
             Log.d("inside sucess", "login.jvava login status" + login_status);
             if (login_status) {
-                Intent intent = new Intent(getActivity(), UserDetails.class).putExtra("map",(Serializable) data);
+                Intent intent = new Intent(getActivity(), UserDetails.class).putExtra("map", (Serializable) data);
                 Log.d("inside sucess", "calling intent");
                 startActivity(intent);
             }

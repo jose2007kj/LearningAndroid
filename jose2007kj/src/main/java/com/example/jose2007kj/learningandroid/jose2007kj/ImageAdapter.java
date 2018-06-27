@@ -10,11 +10,12 @@ import android.widget.ImageView;
 public class ImageAdapter extends BaseAdapter {
     Integer[] imageIDs = {
             R.drawable.mercilo, R.drawable.messi, R.drawable.ronaldho,
-            R.drawable.neymar
+            R.drawable.neymar, R.drawable.baichung, R.drawable.vijayan, R.drawable.sunil, R.drawable.zidane, R.drawable.zidane
     };
     private Context context;
+
     public ImageAdapter(Context c) {
-        context =c;
+        context = c;
     }
 
     @Override

@@ -13,17 +13,15 @@ import android.widget.Toast;
 
 public class PlayersFragment extends Fragment {
     GridView gridView;
+
     public PlayersFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Integer[] imageIDs = {
-                R.drawable.mercilo, R.drawable.messi, R.drawable.ronaldho,
-                R.drawable.neymar,R.drawable.baichung_bhutia,R.drawable.vijayan,R.drawable.sunil,R.drawable.zidane_france_2006
-        };
-        View view = inflater.inflate(R.layout.players_fragment,container,false);
+
+        View view = inflater.inflate(R.layout.players_fragment, container, false);
         gridView = view.findViewById(R.id.gridview);
         gridView.setAdapter(new ImageAdapter(getActivity()));
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

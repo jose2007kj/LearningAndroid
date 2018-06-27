@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPageAdapter extends FragmentPagerAdapter {
-    private final List<Fragment> fragmentList=new ArrayList<>();
-    private final List<String> fragmentTitles=new ArrayList<>();
+    private final List<Fragment> fragmentList = new ArrayList<>();
+    private final List<String> fragmentTitles = new ArrayList<>();
     private static int NUM_ITEMS = 2;
+
     @Override
     public Fragment getItem(int position) {
         return fragmentList.get(position);
@@ -28,12 +29,13 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
         return fragmentTitles.get(position);
     }
 
-    public void addFragment(Fragment fragment,String title ){
+    public void addFragment(Fragment fragment, String title) {
         fragmentList.add(fragment);
         fragmentTitles.add(title);
 
     }
-    public ViewPageAdapter(FragmentManager fm){
+
+    public ViewPageAdapter(FragmentManager fm) {
         super(fm);
 
     }

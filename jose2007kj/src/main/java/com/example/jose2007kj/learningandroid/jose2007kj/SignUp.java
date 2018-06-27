@@ -25,11 +25,11 @@ import java.util.regex.Pattern;
 import com.example.jose2007kj.learningandroid.jose2007kj.model.UserData;
 
 public class SignUp extends Fragment {
-    private EditText f_name, l_name, email, pwd, p_no, re_pwd, dob,u_name;
+    private EditText f_name, l_name, email, pwd, p_no, re_pwd, dob, u_name;
     private boolean signin_status;
     //    private DatePicker dob;
     Calendar cal = Calendar.getInstance();
-    private String s_fname, s_lname, s_email, s_pwd, s_dob, s_pno, s_repwd,s_uname;
+    private String s_fname, s_lname, s_email, s_pwd, s_dob, s_pno, s_repwd, s_uname;
     //https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
     public static final Pattern VALID_PASSWOLD_REGEX_ALPHA_NUM
             = Pattern.compile("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
@@ -58,7 +58,7 @@ public class SignUp extends Fragment {
         p_no = view.findViewById(R.id.editText10);
         re_pwd = view.findViewById(R.id.editText11);
         dob = view.findViewById(R.id.dateDesc);
-        u_name=view.findViewById(R.id.u_name);
+        u_name = view.findViewById(R.id.u_name);
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
@@ -90,7 +90,7 @@ public class SignUp extends Fragment {
             @Override
             public void onClick(View view) {
                 // for temporary use only
-                Intent intent = new Intent(getContext(),Dashboard.class);
+                Intent intent = new Intent(getContext(), Dashboard.class);
                 startActivity(intent);
             }
         });
@@ -119,14 +119,14 @@ public class SignUp extends Fragment {
         s_repwd = re_pwd.getText().toString().trim();
         s_dob = dob.getText().toString().trim();
         s_pno = p_no.getText().toString().trim();
-        s_uname=u_name.getText().toString().trim();
+        s_uname = u_name.getText().toString().trim();
 
         if (!validate()) {
             Toast.makeText(getActivity(), "Signup failed.Please Enter valid details", Toast.LENGTH_SHORT).show();
 
         } else {
             UserData user = new UserData();
-            signin_status = user.register(s_fname, s_lname, s_email, s_pwd, s_pno, s_dob,s_uname);
+            signin_status = user.register(s_fname, s_lname, s_email, s_pwd, s_pno, s_dob, s_uname);
             if (signin_status) {
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new Login(), null).addToBackStack(null).commit();
             }
@@ -140,7 +140,7 @@ public class SignUp extends Fragment {
             f_name.setError("Please Enter valid First Name");
             value = false;
         }
-        if(s_uname.isEmpty()|| s_uname.length()< 4||s_uname.length()>32){
+        if (s_uname.isEmpty() || s_uname.length() < 4 || s_uname.length() > 32) {
             u_name.setError("Please Enter valid User Name");
             value = false;
         }
