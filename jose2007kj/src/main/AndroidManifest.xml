@@ -4,9 +4,11 @@
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:largeHeap="true"
-        >
+        android:name=".GlobalVariables"
+        android:largeHeap="true">
+
 
         <activity android:name=".MainActivity">
             <intent-filter android:order="1">
