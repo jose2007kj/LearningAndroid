@@ -10,16 +10,17 @@ public class Dashboard extends AppCompatActivity {
     private TabLayout tabLayout;
     private AppBarLayout appBarLayout;
     private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        tabLayout=(TabLayout)findViewById(R.id.tab_layout);
-        appBarLayout=(AppBarLayout)findViewById(R.id.app_bar);
-        viewPager=(ViewPager)findViewById(R.id.viewpager);
-        ViewPageAdapter adapter=new ViewPageAdapter(getSupportFragmentManager());
-        adapter.addFragment(new NamesFragment(),"Player Names");
-        adapter.addFragment(new PlayersFragment(),"Players Images");
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        ViewPageAdapter adapter = new ViewPageAdapter(getSupportFragmentManager());
+        adapter.addFragment(new NamesFragment(), "Player Names");
+        adapter.addFragment(new PlayersFragment(), "Players Images");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

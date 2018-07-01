@@ -1,6 +1,7 @@
 package com.example.jose2007kj.learningandroid.jose2007kj;
 
 import android.app.FragmentManager;
+import android.support.constraint.solver.GoalRow;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        GlobalVariables players = (GlobalVariables) getApplicationContext();
+        players.players_info();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fragmentManager = getSupportFragmentManager();
