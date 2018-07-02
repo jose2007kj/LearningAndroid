@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.mybutton) {
             // do something here
             Log.d("clicked","inside app_bar");
-            Intent intent=new Intent(this,SettingsActivity.class);
+            Intent intent=new Intent(this,SettingsFragment.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
