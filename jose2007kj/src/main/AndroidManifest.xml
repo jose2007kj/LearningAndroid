@@ -8,8 +8,6 @@
     <application
         android:name=".GlobalVariables"
         android:largeHeap="true">
-
-
         <activity android:name=".MainActivity">
             <intent-filter android:order="1">
                 <action android:name="android.intent.action.VIEW" />
@@ -42,6 +40,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".Dashboard">
+            <intent-filter android:order="1">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="jose2007kj.example.com"
+                    android:pathPattern="/.*"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
             <intent-filter android:order="1">
                 <action android:name="android.intent.action.VIEW" />
 
